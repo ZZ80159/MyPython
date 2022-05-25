@@ -6,7 +6,7 @@ import openpyxl
 
 def split_excel():
     # 填入文件名
-    excel_name_input = input("填写excel文件名称，限定为.xlsx格式: ")
+    excel_name_input = input("填写excel文件名称,限定为.xlsx格式: ")
     excel_name_open = excel_name_input + ".xlsx"
 
     # 读取对应excel文件，应加入错误提示，待优化
@@ -40,9 +40,11 @@ def split_excel():
         # 写入范围内数据
         t = 1 + limit * (i - 1)
         num_index = 1
-        for row_num in range(t, t + limit ):
+        for row_num in range(t, t + limit):
             for col_num in range(1, column + 1):
-                sheet.cell(row=num_index, column=col_num).value = sheet_origin.cell(row=row_num, column=col_num).value
+                sheet.cell(row=num_index,
+                           column=col_num).value = sheet_origin.cell(
+                               row=row_num, column=col_num).value
             num_index = num_index + 1
 
         wb.save(f'{file_path}/{i}.xlsx')
